@@ -7,7 +7,7 @@ export default function HomeScreen() {
 			<View style={styles.main}>
 				<Text style={styles.title}>Hello World</Text>
 				<Link href={'/settings/'}>Settings</Link>
-				<Link href={'/blog/slug-du-blog'}>Settings</Link>
+				<Link href={'/blog/slug-du-blog'}>Slug</Link>
 			</View>
 		</View>
 	);

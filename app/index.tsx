@@ -1,13 +1,17 @@
-import { Href, Link } from 'expo-router';
+import { Link } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
+	const slug = 'super-article-de-blog';
 	return (
 		<View style={styles.container}>
 			<View style={styles.main}>
 				<Text style={styles.title}>Hello World</Text>
 				<Link href={'/settings/'}>Settings</Link>
-				<Link href={'/blog/slug-du-blog'}>Slug</Link>
+				<Link href={{ pathname: '/blog/[slug]', params: { slug: slug } }}>
+					Article de blog
+				</Link>
+				<Link href={'/about'}>About</Link>
 			</View>
 		</View>
 	);

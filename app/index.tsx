@@ -1,5 +1,6 @@
 import { Link } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
+import BackButton from '../components/back-button';
 
 export default function HomeScreen() {
 	const slug = 'super-article-de-blog';
@@ -13,6 +14,7 @@ export default function HomeScreen() {
 				</Link>
 				<Link href={'/about'}>About</Link>
 			</View>
+			<BackButton />
 		</View>
 	);
 }
@@ -20,8 +22,8 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		alignItems: 'center',
 		padding: 24,
+		position: 'relative',
 	},
 	main: {
 		flex: 1,

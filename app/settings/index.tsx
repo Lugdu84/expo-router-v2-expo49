@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import BackButton from '../../components/back-button';
 
 export default function SettingsScreen() {
 	const handlePush = () => {
@@ -13,9 +14,6 @@ export default function SettingsScreen() {
 	};
 	const handleReplace = () => {
 		router.replace('/');
-	};
-	const handleBack = () => {
-		router.back();
 	};
 	return (
 		<View style={styles.container}>
@@ -32,10 +30,7 @@ export default function SettingsScreen() {
 				title="Replace"
 				onPress={handleReplace}
 			/>
-			<Button
-				title="Back"
-				onPress={handleBack}
-			/>
+			<BackButton />
 		</View>
 	);
 }
@@ -46,6 +41,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		padding: 24,
 		gap: 12,
+		position: 'relative',
 	},
 	title: {
 		fontSize: 32,

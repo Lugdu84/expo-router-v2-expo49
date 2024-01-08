@@ -2,13 +2,11 @@ import { router } from 'expo-router';
 import { View, Text, StyleSheet, Button, Pressable } from 'react-native';
 import BackButton from '../../components/back-button';
 import { useGlobalSearchParams } from 'expo-router';
-import { MaterialIcons } from '@expo/vector-icons';
 
 type Mode = 'light' | 'dark';
 
 export default function SettingsScreen() {
 	const { mode } = useGlobalSearchParams();
-	console.log('on render', mode);
 	const handlePush = () => {
 		router.push('/');
 	};

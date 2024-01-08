@@ -1,32 +1,40 @@
-import {
-	Link,
-	router,
-	useGlobalSearchParams,
-	useSearchParams,
-} from 'expo-router';
-import { View, Text, Pressable } from 'react-native';
+import { router } from 'expo-router';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 export default function SettingsScreen() {
-	const params = useGlobalSearchParams();
-	const handlePressed = () => {
+	const handlePush = () => {
 		router.push('/');
 	};
-
-	const handleSetParams = () => {
-		router.setParams({ test: 'test' });
+	const handlePushWuthParams = () => {
+		router.push({
+			pathname: '/blog/[slug]',
+			params: { slug: 'super-article-de-blog' },
+		});
 	};
-
-	console.log(params);
 	return (
-		<View>
-			<Text>Ceci est une page de settings ...</Text>
-			<Link href={'/'}>Home</Link>
-			<Pressable onPress={handlePressed}>
-				<Text>Valider les modifications</Text>
-			</Pressable>
-			<Pressable onPress={handleSetParams}>
-				<Text>Changer les paramètres</Text>
-			</Pressable>
+		<View style={styles.container}>
+			<Text style={styles.title}>Settings</Text>
+			<Button
+				title="Push"
+				onPress={handlePush}
+			/>
+			<Button
+				title="Push avec params"
+				onPress={handlePushWuthParams}
+			/>
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		padding: 24,
+		gap: 12,
+	},
+	title: {
+		fontSize: 32,
+		fontWeight: 'bold',
+	},
+});

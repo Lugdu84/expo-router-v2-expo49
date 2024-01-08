@@ -5,11 +5,17 @@ export default function SettingsScreen() {
 	const handlePush = () => {
 		router.push('/');
 	};
-	const handlePushWuthParams = () => {
+	const handlePushWithParams = () => {
 		router.push({
 			pathname: '/blog/[slug]',
 			params: { slug: 'super-article-de-blog' },
 		});
+	};
+	const handleReplace = () => {
+		router.replace('/');
+	};
+	const handleBack = () => {
+		router.back();
 	};
 	return (
 		<View style={styles.container}>
@@ -20,7 +26,15 @@ export default function SettingsScreen() {
 			/>
 			<Button
 				title="Push avec params"
-				onPress={handlePushWuthParams}
+				onPress={handlePushWithParams}
+			/>
+			<Button
+				title="Replace"
+				onPress={handleReplace}
+			/>
+			<Button
+				title="Back"
+				onPress={handleBack}
 			/>
 		</View>
 	);
